@@ -5,8 +5,8 @@ frameHeight = 640
 minArea = 500
 color=(255,0,255)
 
-url = "http://192.168.0.100:8080/video"
-cap=cv2.VideoCapture(url)       # 0 for webcam, 1 for secondary webcam, url for IP webcam
+#url = "http://192.168.0.100:8080/video"
+cap=cv2.VideoCapture(0)       # 0 for webcam, 1 for secondary webcam, url for IP webcam
 cap.set(3,frameHeight)
 cap.set(4,frameWidth)
 cap.set(10,130)
@@ -16,7 +16,6 @@ while True:
     success, img=cap.read()
     imgGray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     numberPlates = NumberPlateCascade.detectMultiScale(imgGray, scaleFactor=1.1, minNeighbors=3)
-    #print("number of faces:", len(faces))
     for (x, y, w, h) in numberPlates:
         area = w*h
         if area > minArea:
