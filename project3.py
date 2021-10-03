@@ -26,7 +26,7 @@ while True:
 
 
     cv2.imshow("Video",img)
-    if cv2.waitKey(1) & 0xFF ==ord('s'):
+    if cv2.waitKey(1) & 0xFF ==ord('s'):     #press 's' to save the number plate image in your directory
         cv2.imwrite("Resourses/NPlate_"+str(count)+".jpg",imgROI)
         cv2.rectangle(img,(0,200),(640,300),(0,255,0),cv2.FILLED)
         cv2.putText(img,"Scan saved",(150,265),cv2.FONT_HERSHEY_DUPLEX,2,(0,0,255),2)
